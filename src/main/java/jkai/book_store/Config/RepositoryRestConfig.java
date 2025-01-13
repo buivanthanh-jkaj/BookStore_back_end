@@ -13,7 +13,7 @@ import org.springframework.web.servlet.config.annotation.CorsRegistry;
 
 @Configuration
 public class RepositoryRestConfig implements RepositoryRestConfigurer {
-
+    @Autowired
     private final EntityManager entityManager;
 
     @Autowired
@@ -23,7 +23,7 @@ public class RepositoryRestConfig implements RepositoryRestConfigurer {
 
     @Override
     public void configureRepositoryRestConfiguration(RepositoryRestConfiguration config, CorsRegistry cors) {
-        // ID cho tất cả các entity
+        // Phơi bày ID cho tất cả các entity
         config.exposeIdsFor(
                 entityManager.getMetamodel().getEntities().stream()
                         .map(Type::getJavaType)
@@ -35,7 +35,7 @@ public class RepositoryRestConfig implements RepositoryRestConfigurer {
 
         // Cấu hình CORS
         cors.addMapping("/**")
-                .allowedOrigins("http://localhost:3000") // Thay đổi domain tùy theo ứng dụng frontend
+                .allowedOrigins("http://localhost:3000") // Thay đổi domain tùy theo ứng dụng frontend của bạn
                 .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS");
     }
 }
