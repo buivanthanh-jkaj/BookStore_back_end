@@ -8,7 +8,10 @@ import java.sql.Blob;
 @Data
 @Table(name = "hinh_anh")
 public class HinhAnh {
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "ma_hinh_anh")
+    private int maHinhAnh;
 
     @Column(name = "ten_hinh_anh", length = 256)
     private String tenHinhAnh;
