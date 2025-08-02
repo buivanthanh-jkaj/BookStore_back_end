@@ -16,10 +16,10 @@ public class HinhAnh {
     @Column(name = "ten_hinh_anh", length = 256)
     private String tenHinhAnh;
 
-    @Column(name = "la_icon") // tiny int
-    private boolean laIcon;
 
 
+    @Column(name = "duong_dan")
+    private String duongDan;
 
     @Column(name = "du_lieu_anh", columnDefinition = "LONGTEXT")
     @Lob
